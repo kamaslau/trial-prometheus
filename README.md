@@ -5,10 +5,19 @@
 
 ## Bootstrap
 
+确保主节点的 3000、9090 端口，被监控节点的 9100 端口均已打开。
+
+### 主节点
+
 ```shell
-mkdir -p ~/grafana
-cp prometheus.yml ~/prometheus/prometheus.yml
+mkdir -p data/grafana
 docker compose up -d
+```
+
+### 被监控节点
+
+```shell
+docker run --name node-exporter --restart always -d -p 9100:9100 prom/node-exporter
 ```
 
 ## Grafana
