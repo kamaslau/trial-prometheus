@@ -11,8 +11,19 @@
 
 ```shell
 mkdir -p data/grafana
+chmod 777 data/grafana
 docker compose up -d
 ```
+
+添加数据源
+
+`URL` 字段填写 `http://prometheus:9090` 并回车即可。
+
+导入 Dashboard
+
+http://localhost:3000/dashboard/import
+
+`Import via grafana.com` 字段填写 `1860` 后点击 `Load`。
 
 ### 被监控节点
 
