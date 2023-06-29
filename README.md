@@ -1,13 +1,10 @@
 # trial-prometheus
 
-- [Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/): http://localhost:3000
-- [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/#using-docker): http://localhost:9090
-
 ## 默认端口及账号
 
-http://localhost:3000
-
-admin/admin
+- [Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/): http://localhost:3000 admin/admin
+- Node-exporter: http://localhost:9100
+- [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/#using-docker): http://localhost:9090/targets
 
 ## 部署
 
