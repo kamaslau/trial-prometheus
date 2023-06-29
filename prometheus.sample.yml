@@ -9,5 +9,3 @@ scrape_configs:
     static_configs:
       - targets:
           - localhost:9100
-          - 192.168.31.131:9100:9100
-          - 139.198.163.137:9100

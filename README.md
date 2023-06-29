@@ -23,6 +23,7 @@ docker compose up -d
 [http://localhost:3000/connections/datasources/new](http://localhost:3000/connections/datasources/new)
 
 ```bash
+cp -f prometheus.sample.yml prometheus.yml
 sudo nano prometheus.yml
 ```
 
