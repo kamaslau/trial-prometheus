@@ -1,12 +1,12 @@
 # trial-prometheus
 
-## 默认端口及账号
+## Service URL and default user/password
 
 - [Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/): http://localhost:3000 admin/admin
 - Node-exporter: http://localhost:9100
 - [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/#using-docker): http://localhost:9090/targets
 
-## 部署
+## Usage
 
 确保主节点的 `3000`、`9090` 端口，被监控节点的 `9100` 端口已开放。
 
@@ -15,17 +15,17 @@
 启动服务
 
 ```bash
+# Initiate config file
+cp -f prometheus.sample.yml prometheus.yml
+sudo nano prometheus.yml
+
+# Start services
 docker compose up -d
 ```
 
 #### 添加数据源
 
 [http://localhost:3000/connections/datasources/new](http://localhost:3000/connections/datasources/new)
-
-```bash
-cp -f prometheus.sample.yml prometheus.yml
-sudo nano prometheus.yml
-```
 
 #### 添加数据库
 
