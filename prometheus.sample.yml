@@ -8,5 +8,5 @@ scrape_configs:
   - job_name: node
     static_configs:
       - targets:
-          - node-exporter
+          - node-exporter:9100
           # - <ip>:<port>
