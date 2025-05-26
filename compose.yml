@@ -1,4 +1,5 @@
-# https://docs.docker.com/compose/compose-file/
+name: trial-prometheus
+
 networks:
   grafana:
 
@@ -9,36 +10,30 @@ services:
   grafana:
     container_name: grafana
     image: grafana/grafana-oss
-    restart: always
+    restart: unless-stopped
     ports:
-      - 3000:3000
+      - "3000:3000"
     networks:
       - grafana
     volumes:
-      - type: volume
-        source: grafana_data
-        target: /var/lib/grafana
+      - grafana_data:/var/lib/grafana
 
   prometheus:
     container_name: prometheus
     image: prom/prometheus
-    restart: always
+    restart: unless-stopped
     ports:
-      - 9090:9090
-    extra_hosts:
-      - host.docker.internal:host-gateway
+      - "9090:9090"
     networks:
       - grafana
     volumes:
-      - type: bind
-        source: ./prometheus.yml
-        target: /etc/prometheus/prometheus.yml
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
 
   node-exporter:
     container_name: node-exporter
     image: prom/node-exporter
-    restart: always
+    restart: unless-stopped
     ports:
-      - 9100:9100
+      - "9100:9100"
     networks:
       - grafana
