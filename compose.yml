@@ -5,6 +5,7 @@ networks:
 
 volumes:
   grafana_data:
+  prometheus_data:
 
 services:
   grafana:
@@ -16,11 +17,7 @@ services:
     networks:
       - grafana
     volumes:
-      - type: volume
-        source: grafana_data
-        target: /var/lib/grafana
-        volume:
-          nocopy: true
+      - grafana_data:/var/lib/grafana
 
   prometheus:
     container_name: prometheus
@@ -31,6 +28,7 @@ services:
     networks:
       - grafana
     volumes:
+      - prometheus_data:/prometheus
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
 
   node-exporter:
