@@ -16,7 +16,11 @@ services:
     networks:
       - grafana
     volumes:
-      - grafana_data:/var/lib/grafana
+      - type: volume
+        source: grafana_data
+        target: /var/lib/grafana
+        volume:
+          nocopy: true
 
   prometheus:
     container_name: prometheus
